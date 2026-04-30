@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Animation;
 using System.Windows.Threading;
-using TestWPFSample;
 
-namespace WpfHotReloadDemo
+namespace TestWPFSample
 {
     public partial class MainWindow : Window
     {
@@ -26,6 +27,23 @@ namespace WpfHotReloadDemo
             _timer.Start();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            ((Storyboard)Resources["RotateSquareStoryboard"]).Begin(this, true);
+            ((Storyboard)Resources["MoveCircleStoryboard"]).Begin(this, true);
+            ((Storyboard)Resources["SkewTextStoryboard"]).Begin(this, true);
+
+            var rotationAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 360,
+                Duration = TimeSpan.FromSeconds(5),
+                RepeatBehavior = RepeatBehavior.Forever
+            };
+
+            PlaneRotation.BeginAnimation(System.Windows.Media.Media3D.AxisAngleRotation3D.AngleProperty, rotationAnimation);
+        }
+
         private void Timer_Tick(object? sender, EventArgs e)
         {
             _viewModel.AddTickMessage();
@@ -39,6 +57,26 @@ namespace WpfHotReloadDemo
             };
 
             detailsWindow.ShowDialog();
+        }
+
+        private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender is not ComboBox comboBox)
+            {
+                return;
+            }
+
+            if (comboBox.SelectedItem is not ComboBoxItem selectedItem)
+            {
+                return;
+            }
+
+            var themeName = selectedItem.Content?.ToString();
+
+            if (!string.IsNullOrWhiteSpace(themeName))
+            {
+                ThemeService.ApplyTheme(themeName);
+            }
         }
     }
 }

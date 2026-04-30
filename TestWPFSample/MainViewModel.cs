@@ -64,15 +64,17 @@ namespace TestWPFSample
             }
         }
 
-        public ObservableCollection<string> Messages { get; } = new ObservableCollection<string>();
+        public ObservableCollection<string> Messages { get; } = new();
 
         public ICommand AddMessageCommand { get; }
+
         public ICommand IncreaseCounterCommand { get; }
 
         public void AddTickMessage()
         {
-            Messages.Insert(0, $"Tick: {DateTime.Now:T}");
-            while (Messages.Count > 8)
+            Messages.Insert(0, $"Live tick: {DateTime.Now:T}");
+
+            while (Messages.Count > 10)
             {
                 Messages.RemoveAt(Messages.Count - 1);
             }
@@ -82,7 +84,8 @@ namespace TestWPFSample
         {
             Messages.Insert(0, $"Сообщение от {UserName} в {DateTime.Now:T}");
             StatusText = "Добавлено новое сообщение";
-            while (Messages.Count > 8)
+
+            while (Messages.Count > 10)
             {
                 Messages.RemoveAt(Messages.Count - 1);
             }
