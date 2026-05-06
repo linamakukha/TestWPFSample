@@ -43,6 +43,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1.2*" />
                 <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="0.7*" />
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0" Margin="0,0,16,0">
@@ -288,6 +289,44 @@
                                    Foreground="{DynamicResource MutedTextBrush}"
                                    TextWrapping="Wrap"/>
                     </StackPanel>
+                </Border>
+            </StackPanel>
+            
+            <StackPanel Grid.Column="2">
+                <Border Style="{StaticResource AccentCardStyle}">
+                <StackPanel Margin="0,12,0,0">
+
+                    <TextBlock Text="Настройки"
+                               FontSize="18"
+                               FontWeight="SemiBold"
+                               Margin="0,0,0,12"/>
+
+                    <RadioButton Content="Первый вариант"
+                                 GroupName="OptionsGroup"
+                                 IsChecked="True"
+                                 Margin="0,0,0,8"/>
+
+                    <RadioButton Content="Второй вариант"
+                                 GroupName="OptionsGroup"
+                                 Margin="0,0,0,16"/>
+
+                    <TextBlock Text="Комментарий:"
+                               Margin="0,0,0,6"/>
+
+                    <TextBox Height="36"
+                             Text="New text"
+                             Margin="0,0,0,16"/>
+
+                    <TextBlock Text="Дата:"
+                               Margin="0,0,0,6"/>
+
+                    <DatePicker x:Name="MyDatePicker"
+                                Margin="0,10,20,20"/>
+                    
+                    <TextBlock Text="One more text:"
+                               Margin="0,0,0,6"/>
+
+                </StackPanel>
                 </Border>
             </StackPanel>
         </Grid>

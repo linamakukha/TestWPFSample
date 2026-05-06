@@ -14,6 +14,8 @@ namespace TestWPFSample
         public MainWindow()
         {
             InitializeComponent();
+            
+            MyDatePicker.SelectedDate = DateTime.Today;
 
             _viewModel = new MainViewModel();
             DataContext = _viewModel;
@@ -78,5 +80,7 @@ namespace TestWPFSample
                 ThemeService.ApplyTheme(themeName);
             }
         }
+        
+        
     }
 }
