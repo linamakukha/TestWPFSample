@@ -132,6 +132,10 @@
                             <Button Content="Открыть второй экран"
                                     Style="{StaticResource PrimaryButtonStyle}"
                                     Click="OpenDetails_Click"/>
+                            
+                            <Button Content="Open Controls Demo"
+                                    Click="OpenControlsDemo_Click"
+                                    Style="{StaticResource PrimaryButtonStyle}"/>
                         </WrapPanel>
 
                         <TextBlock Text="{Binding Counter, StringFormat=Counter: {0}}"

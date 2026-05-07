@@ -81,6 +81,14 @@ namespace TestWPFSample
             }
         }
         
+        private void OpenControlsDemo_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new ControlsDemoWindow
+            {
+                Owner = this
+            };
         
+            window.ShowDialog();
+        }
     }
 }
