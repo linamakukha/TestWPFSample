@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Markup;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 
@@ -89,6 +91,33 @@ namespace TestWPFSample
             };
         
             window.ShowDialog();
+        }
+
+        private void CreateDemoDocument()
+        {
+            var document = new FixedDocument();
+
+            var page = new FixedPage
+            {
+                Width = 600,
+                Height = 800
+            };
+
+            var text = new TextBlock
+            {
+                Text = "Hello from DocumentViewer",
+                FontSize = 28,
+                Margin = new Thickness(40)
+            };
+
+            page.Children.Add(text);
+
+            var pageContent = new PageContent();
+            ((IAddChild)pageContent).AddChild(page);
+
+            document.Pages.Add(pageContent);
+
+            DemoDocumentViewer.Document = document;
         }
     }
 }

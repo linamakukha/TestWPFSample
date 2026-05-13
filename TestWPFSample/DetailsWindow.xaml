@@ -33,15 +33,15 @@
                             <DoubleAnimation Storyboard.TargetProperty="RenderTransform.Children[0].ScaleX"
                                              From="1.0"
                                              To="1.12"
-                                             Duration="0:0:0.7"/>
+                                             Duration="0:0:0.100"/>
                             <DoubleAnimation Storyboard.TargetProperty="RenderTransform.Children[0].ScaleY"
                                              From="1.0"
                                              To="1.12"
-                                             Duration="0:0:0.7"/>
+                                             Duration="0:0:0.100"/>
                             <DoubleAnimation Storyboard.TargetProperty="RenderTransform.Children[1].Angle"
-                                             From="-2"
-                                             To="2"
-                                             Duration="0:0:0.35"/>
+                                             From="-45"
+                                             To="45"
+                                             Duration="0:0:0.2"/>
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>

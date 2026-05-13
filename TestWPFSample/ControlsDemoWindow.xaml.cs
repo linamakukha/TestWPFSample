@@ -14,8 +14,8 @@ namespace TestWPFSample
                 new { Name = "ListView", Type = "Selection" },
                 new { Name = "TreeView", Type = "Hierarchy" },
                 new { Name = "DataGrid", Type = "Table" },
-                new { Name = "Test1", Type = "Test1" },
-                new { Name = "Test2", Type = "Test2" },
+                //new { Name = "Test1", Type = "Test1" },
+                //new { Name = "Test2", Type = "Test2" },
             };
         }
     }
