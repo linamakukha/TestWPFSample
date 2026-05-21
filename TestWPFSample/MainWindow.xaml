@@ -352,6 +352,58 @@
                     </StackPanel>
 
                 </Border>
+                
+                <Border Style="{StaticResource CardStyle}">
+
+                    <Grid Margin="8">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0"
+                                   Text="Complex nested collection"
+                                   FontSize="20"
+                                   FontWeight="Bold"
+                                   Margin="0,0,0,12"/>
+
+                        <ListBox Grid.Row="1"
+                                 ItemsSource="{Binding Messages}">
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    
+                                    <Grid Margin="4">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Border Grid.Column="0"
+                                                Background="{DynamicResource ListItemBrush}"
+                                                Padding="10"
+                                                CornerRadius="8">
+
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding}"/>
+                                                <TextBlock Text="Extra line"/>
+                                            </StackPanel>
+                                        </Border>
+
+                                        <Button Grid.Column="1"
+                                                Content="{Binding}"
+                                                Margin="8,0,0,0"
+                                                Click="NestedItemButton_Click"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+
+                        </ListBox>
+
+                    </Grid>
+
+                </Border>
             </StackPanel>
         </Grid>
     </ScrollViewer>

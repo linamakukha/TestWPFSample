@@ -28,7 +28,7 @@ namespace TestWPFSample
             };
 
             _timer.Tick += Timer_Tick;
-            _timer.Start();
+            //_timer.Start();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -118,6 +118,12 @@ namespace TestWPFSample
             document.Pages.Add(pageContent);
 
             DemoDocumentViewer.Document = document;
+        }
+        
+        private void NestedItemButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Nested item button clicked" +
+                            "New text added");
         }
     }
 }
